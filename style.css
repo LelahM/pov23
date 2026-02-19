@@ -24,25 +24,37 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 45vw;
-  max-height: 60vh;
-  min-height: 180px;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 320px;
   overflow: hidden;
   z-index: 1;
 }
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 320px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(24,24,24,0.72) 0%, rgba(24,24,24,0.55) 40%, rgba(24,24,24,0.38) 80%, rgba(24,24,24,0.85) 100%);
+}
 .hero-img {
   width: 100vw;
-  height: 45vw;
-  max-height: 60vh;
-  min-height: 180px;
-  object-fit: cover;
-  object-position: 50% 35%; /* Center horizontally, lower vertically for better focus */
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 320px;
+  object-fit: contain;
+  object-position: center center;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0.7;
   z-index: 1;
-  transition: opacity 1s;
+  transition: opacity 1s, object-position 0.5s;
 }
 .hero-img.active {
   opacity: 0.7;
@@ -53,6 +65,7 @@ body {
   z-index: 3;
   text-align: center;
   padding: 1.5rem 1rem 3rem 1rem;
+  text-shadow: 0 2px 16px #000b, 0 1px 2px #000a;
 }
 .logo {
   width: 120px;
@@ -512,16 +525,12 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-  .hero-slideshow {
-    height: 48vw;
-    min-height: 160px;
-    max-height: 38vh;
-  }
+  .hero-slideshow,
+  .hero-overlay,
   .hero-img {
-    height: 48vw;
+    height: 60vw;
+    max-height: 60vw;
     min-height: 160px;
-    max-height: 38vh;
-    object-position: 50% 25%; /* Adjust for mobile */
   }
   .hero-content {
     padding: 0.5rem 1rem 2rem 1rem;
@@ -547,16 +556,12 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     min-height: 140px;
     max-height: 260px;
   }
-  .hero-slideshow {
-    height: 60vw;
-    min-height: 120px;
-    max-height: 30vh;
-  }
+  .hero-slideshow,
+  .hero-overlay,
   .hero-img {
-    height: 60vw;
+    height: 80vw;
+    max-height: 80vw;
     min-height: 120px;
-    max-height: 30vh;
-    object-position: 50% 18%; /* Further adjust for small screens */
   }
   .hero {
     /* Keep the same gradient background on small screens */
