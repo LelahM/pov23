@@ -4,6 +4,7 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   background: #fff;
   color: #111;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -14,7 +15,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  background: #111;
+  /* Use a modern gradient background for all screens */
+  background: linear-gradient(135deg, #181818 0%, #23272f 100%);
   overflow: hidden;
 }
 .hero-slideshow {
@@ -226,21 +228,43 @@ body.dark-mode #darkModeToggle:hover {
   gap: 1.5rem;
   margin-top: 2rem;
 }
+@media (max-width: 800px) {
+  .lookbook-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .lookbook-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
 .lookbook-img {
-  height: 320px;
-  background: #222;
-  color: #fff;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  aspect-ratio: 3/4;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 2px 12px #0002;
   transition: transform 0.25s, box-shadow 0.25s;
+  display: block;
 }
-.lookbook-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 24px #00eaff44;
+@media (max-width: 800px) {
+  .lookbook-img {
+    aspect-ratio: 3/4;
+    height: auto;
+    min-height: 180px;
+    max-height: 340px;
+  }
+}
+@media (max-width: 500px) {
+  .lookbook-img {
+    aspect-ratio: 3/4;
+    min-height: 140px;
+    max-height: 260px;
+  }
 }
 
 .order-form form {
@@ -485,7 +509,8 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     align-items: center;
   }
   .lookbook-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
   .hero-slideshow {
     height: 48vw;
@@ -499,12 +524,16 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     object-position: 50% 25%; /* Adjust for mobile */
   }
   .hero-content {
-    padding: 0.5rem 0.2rem 2rem 0.2rem;
+    padding: 0.5rem 1rem 2rem 1rem;
+  }
+  .hero {
+    /* Keep the same gradient background on mobile */
+    background: linear-gradient(135deg, #181818 0%, #23272f 100%);
   }
 }
 @media (max-width: 500px) {
   .hero-content {
-    padding: 0.2rem 0.2rem 1.2rem 0.2rem;
+    padding: 0.2rem 0.5rem 1.2rem 0.5rem;
   }
   .section {
     padding: 2rem 0.2rem 1rem 0.2rem;
@@ -514,7 +543,9 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     padding: 1rem 0.5rem;
   }
   .lookbook-img {
-    height: 180px;
+    aspect-ratio: 3/4;
+    min-height: 140px;
+    max-height: 260px;
   }
   .hero-slideshow {
     height: 60vw;
@@ -526,6 +557,10 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
     min-height: 120px;
     max-height: 30vh;
     object-position: 50% 18%; /* Further adjust for small screens */
+  }
+  .hero {
+    /* Keep the same gradient background on small screens */
+    background: linear-gradient(135deg, #181818 0%, #23272f 100%);
   }
 }
 
