@@ -418,46 +418,22 @@ body.dark-mode .order-btn:hover, body.dark-mode .order-btn:focus {
   border: 2px solid #111;
 }
 
-.payment-methods .payment-cards {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-.payment-card {
-  background: #f1f1f1;
-  border-radius: 12px;
-  padding: 1.2rem 2rem;
-  min-width: 200px;
-  text-align: center;
-  box-shadow: 0 2px 8px #0001;
-}
-.payment-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: center;
-}
-.pay-logo {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 0.5rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.payment-card a {
-  color: #1976d2;
-  text-decoration: none;
-  font-weight: 700;
-}
+/* Remove payment section styles */
+/* .payment-methods .payment-cards,
+.payment-card,
+.payment-card h3,
+.pay-logo,
+.payment-card a,
 .payment-methods .note {
-  text-align: center;
-  color: #e53935;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
+  display: none !important;
+} */
+
+/* Remove payment section dark mode styles */
+/* body.dark-mode .payment-card,
+body.dark-mode .payment-card a,
+body.dark-mode .payment-methods .note {
+  display: none !important;
+} */
 
 .socials .social-icons {
   display: flex;
