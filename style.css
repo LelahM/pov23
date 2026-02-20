@@ -15,17 +15,51 @@ body {
   left: 0;
   z-index: 100;
   box-shadow: 0 2px 12px #0002;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  min-height: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
 }
 .main-nav ul {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   gap: 2.5rem;
   margin: 0;
-  padding: 0.7rem 0 0.7rem 0;
+  padding: 0 0.5rem;
   list-style: none;
+  min-height: 0;
+  height: 48px;
+  border-bottom: none;
+}
+@media (max-width: 800px) {
+  .main-nav {
+    height: 42px;
+  }
+  .main-nav ul {
+    height: 42px;
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 500px) {
+  .main-nav {
+    height: 38px;
+  }
+  .main-nav ul {
+    height: 38px;
+    gap: 0.7rem;
+  }
 }
 .main-nav li {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 .main-nav a {
   color: #fff;
@@ -54,83 +88,111 @@ body.dark-mode .main-nav a:hover {
 
 /* --- HERO SECTION: Remove all extra space on mobile, show only image --- */
 .hero {
-  margin-top: 56px;
+  margin-top: 0 !important;
   padding: 0;
-  height: auto;
-  min-height: unset;
+  height: calc(48vw + 2cm) !important;
+  max-height: calc(420px + 2cm) !important;
+  min-height: calc(220px + 2cm) !important;
   background: none !important;
   box-shadow: none;
+  padding-top: 0 !important;
+  border-top: none;
 }
 .hero-slideshow {
   position: relative;
   width: 100vw;
-  height: auto;
-  min-height: unset;
-  max-height: none;
+  height: calc(48vw + 2cm) !important;
+  max-height: calc(420px + 2cm) !important;
+  min-height: calc(220px + 2cm) !important;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   overflow: hidden;
-  margin-top: 0;
+  margin-top: 0 !important;
   background: none !important;
 }
 .hero-img,
 .hero-img.illusion {
   width: 100vw !important;
   max-width: 100vw !important;
-  height: auto !important;
-  max-height: none !important;
-  min-height: unset !important;
+  height: 100% !important;
+  min-height: calc(220px + 2cm) !important;
+  max-height: calc(420px + 2cm) !important;
   object-fit: cover !important;
   object-position: center center !important;
+  scale: 1.08;
+  /* Zoom in slightly to remove any extra space */
   display: block;
   background: none !important;
   box-shadow: none !important;
+  filter: brightness(0.98) contrast(1.04) saturate(1.08);
+  transition: filter 0.4s;
+}
+body.dark-mode .hero-img,
+body.dark-mode .hero-img.illusion {
+  filter: brightness(0.7) grayscale(0.18) contrast(1.08) saturate(1.1) !important;
 }
 @media (max-width: 800px) {
   .hero,
   .hero-slideshow {
-    margin-top: 44px;
+    margin-top: 0 !important;
     padding: 0;
-    height: auto;
-    min-height: unset;
-    max-height: none;
+    height: calc(60vw + 2cm) !important;
+    max-height: calc(320px + 2cm) !important;
+    min-height: calc(140px + 2cm) !important;
     background: none !important;
+    padding-top: 0 !important;
+  }
+  .hero-slideshow {
+    margin-top: 0 !important;
   }
   .hero-img,
   .hero-img.illusion {
     width: 100vw !important;
     max-width: 100vw !important;
-    height: auto !important;
-    max-height: none !important;
-    min-height: unset !important;
+    height: 100% !important;
+    min-height: calc(140px + 2cm) !important;
+    max-height: calc(320px + 2cm) !important;
     object-fit: cover !important;
+    scale: 1.12;
+    /* Slightly more zoom for mobile */
     background: none !important;
   }
 }
 @media (max-width: 500px) {
   .hero,
   .hero-slideshow {
-    margin-top: 44px;
+    margin-top: 0 !important;
     padding: 0;
-    height: auto;
-    min-height: unset;
-    max-height: none;
+    height: calc(80vw + 2cm) !important;
+    max-height: calc(220px + 2cm) !important;
+    min-height: calc(100px + 2cm) !important;
     background: none !important;
+    padding-top: 0 !important;
+  }
+  .hero-slideshow {
+    margin-top: 0 !important;
   }
   .hero-img,
   .hero-img.illusion {
     width: 100vw !important;
     max-width: 100vw !important;
-    height: auto !important;
-    max-height: none !important;
-    min-height: unset !important;
+    height: 100% !important;
+    min-height: calc(100px + 2cm) !important;
+    max-height: calc(220px + 2cm) !important;
     object-fit: cover !important;
+    scale: 1.16;
+    /* Even more zoom for small screens */
     background: none !important;
   }
 }
 .hero-content {
   display: none;
+}
+
+/* Remove illusion layers from hero image */
+.hero-img.illusion {
+  display: none !important;
 }
 
 /* --- DARK MODE TOGGLE BUTTON --- */
@@ -251,9 +313,29 @@ body.dark-mode #darkModeToggle:hover {
   font-weight: 700;
   text-decoration: line-through;
 }
-.order-btn {
-  margin-top: 1rem;
-  width: 100%;
+.order-btn, .order-btn:visited, .order-btn:active {
+  background: #181818 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 2px 12px #0002;
+  text-decoration: none !important;
+}
+.order-btn:hover, .order-btn:focus {
+  background: #fff !important;
+  color: #181818 !important;
+  border: 2px solid #181818 !important;
+  box-shadow: 0 4px 24px #0004;
+  text-decoration: none !important;
+}
+body.dark-mode .order-btn, body.dark-mode .order-btn:visited, body.dark-mode .order-btn:active {
+  background: #fff !important;
+  color: #181818 !important;
+  border: 2px solid #181818 !important;
+}
+body.dark-mode .order-btn:hover, body.dark-mode .order-btn:focus {
+  background: #181818 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
 }
 
 .lookbook-grid {
@@ -402,14 +484,6 @@ body.dark-mode #darkModeToggle:hover {
 .social-handle {
   font-size: 1rem;
   color: #222;
-  margin-top: 0.2rem;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-}
-.social-handles {
-  text-align: center;
-  color: #222;
   font-size: 1rem;
 }
 
@@ -552,7 +626,7 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
   .hero {
     /* Keep the same gradient background on mobile */
     background: linear-gradient(135deg, #181818 0%, #23272f 100%);
-    margin-top: 44px;
+    margin-top: 0 !important;
   }
   .main-nav ul {
     gap: 1.2rem;
@@ -581,6 +655,7 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
   .hero {
     /* Keep the same gradient background on small screens */
     background: linear-gradient(135deg, #181818 0%, #23272f 100%);
+    margin-top: 0 !important;
   }
 }
 
@@ -688,5 +763,50 @@ body.dark-mode footer {
   .hero-slogan {
     font-size: 10vw;
     padding: 0.2em 1.2em;
+  }
+}
+
+/* --- Scroll Down Indicator --- */
+.scroll-down-indicator,
+.scroll-down-indicator.scroll-down-top {
+  display: none !important;
+}
+
+/* --- HERO GLOW FRAME --- */
+.hero-glow-frame {
+  display: none !important;
+}
+
+.header-quote {
+  width: 100vw;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, rgba(24,24,24,0.92) 0%, rgba(35,39,47,0.92) 100%);
+  padding: 0.7em 0 0.5em 0;
+  box-shadow: 0 2px 12px #0002;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  opacity: 0;
+  animation: fadeInHeaderQuote 1.2s 0.2s forwards;
+  pointer-events: none;
+}
+@keyframes fadeInHeaderQuote {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .header-quote {
+    font-size: 1.01rem;
+    padding: 0.5em 0 0.4em 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 }
