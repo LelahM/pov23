@@ -569,6 +569,77 @@ body.dark-mode .order-btn:hover, body.dark-mode .order-btn:focus {
   }
 }
 
+/* --- PAYMENT METHODS SECTION: Dark Mode Title & Link/Button Styling --- */
+.payment-methods-title, .payment-methods h2 {
+  font-size: 1.18rem;
+  font-weight: 900;
+  margin-bottom: 1.1rem;
+  color: #181818;
+  text-align: center;
+  letter-spacing: 1px;
+}
+body.dark-mode .payment-methods-title, body.dark-mode .payment-methods h2 {
+  color: #fff;
+}
+
+/* Payment links as clean buttons/text */
+.payment-link, .payment-link:visited {
+  display: inline-block;
+  background: #00eaff;
+  color: #181818;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.5em 1.1em;
+  margin: 0.2em 0;
+  text-decoration: none !important;
+  font-size: 1.05rem;
+  box-shadow: 0 1px 6px #0001;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  border: none;
+  cursor: pointer;
+}
+.payment-link:hover, .payment-link:focus {
+  background: #181818;
+  color: #fff;
+  box-shadow: 0 2px 12px #00eaff44;
+}
+body.dark-mode .payment-link, body.dark-mode .payment-link:visited {
+  background: #23272f;
+  color: #00eaff;
+  border: 1.5px solid #00eaff;
+}
+body.dark-mode .payment-link:hover, body.dark-mode .payment-link:focus {
+  background: #00eaff;
+  color: #181818;
+}
+
+/* Make tap area large enough for mobile */
+@media (max-width: 600px) {
+  .payment-link, .payment-link:visited {
+    font-size: 1.13rem;
+    padding: 0.7em 1.2em;
+    min-width: 60vw;
+    text-align: center;
+  }
+}
+
+/* Remove default link highlight color on tap for mobile */
+.payment-link, .payment-link:visited, .payment-link:active {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Payment method section spacing for mobile */
+@media (max-width: 600px) {
+  .payment-methods {
+    gap: 0.7rem;
+  }
+  .payment-methods-title, .payment-methods h2 {
+    font-size: 1.08rem;
+    margin-bottom: 0.7rem;
+  }
+}
+
 /* --- CONNECT BUTTON/HEADER AT TOP --- */
 .connect-header, .connect-btn {
   margin-top: 0.7rem;
@@ -779,6 +850,33 @@ body:not(.dark-mode) .footer-verse-glow .verse-ref {
   font-size: 1.02rem;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+/* Footer email styling */
+.footer-contact {
+  margin-bottom: 1.2rem;
+}
+.footer-email {
+  display: inline-block;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #00eaff;
+  background: none;
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+.footer-email:hover, .footer-email:focus {
+  color: #fff;
+  background: #00eaff;
+}
+body.dark-mode .footer-email {
+  color: #90caf9;
+}
+body.dark-mode .footer-email:hover, body.dark-mode .footer-email:focus {
+  color: #181818;
+  background: #90caf9;
 }
 
 @media (max-width: 800px) {
