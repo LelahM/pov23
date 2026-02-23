@@ -198,8 +198,9 @@ body.dark-mode .hero-img.illusion {
 /* --- DARK MODE TOGGLE BUTTON --- */
 #darkModeToggle {
   position: absolute;
-  top: 18px;
+  bottom: 18px;
   right: 18px;
+  top: auto;
   z-index: 10;
   background: rgba(255,255,255,0.85);
   color: #111;
